@@ -1,75 +1,116 @@
 $(document).ready(function(){
 
-mostrarTodosJSON(); //se van a mostrar todos los pokemones
-
-$("#botonLimpiar").click(function(e){
-    e.preventDefault();
-
-    limpiar();
-
-});
+mostrarTodosJSON();
 
 $("#botonMostrarTodos").click(function(e){
     e.preventDefault();
-
-    limpiar();
     mostrarTodosJSON();
 });
 
+$("#botonLimpiar").click(function(e){
+    e.preventDefault();
+    limpiar();
+})
 
-});
+$("#botonBuscar").click(function(e){
+    e.preventDefault();
+    var nombrePokemon = $("#campoBuscar").val().toLowerCase();
+    if (nombrePokemon) {
+        
+      buscarPokemonJSON(nombrePokemon);
+    }
+    
+})
 
+
+
+})
 
 function limpiar(){
     $("#pictures-container").empty();
+    $("#campoBuscar").val("");
+}
+
+function buscarPokemonJSON(nombrePokemon){
+    $.ajax({
+        type: 'GET',
+        url: 'data/data.json',
+        dataType: "json",
+        async: true,
+        success: function(data){
+           
+            buscarPokemon(data,nombrePokemon);
+        }
+    });
+}
+
+function buscarPokemon(data,nombrePokemon){
+    console.log(nombrePokemon)
+    limpiar();
+    var encontrado = false;
+    var pokemonEncontrado;
+    for(let i=0;i<data.pokemones.length;i++){
+        console.log(nombrePokemon+" "+data.pokemones[i].nombre);
+        if(data.pokemones[i].nombre == nombrePokemon){
+            console.log(true);
+            encontrado = true;
+            pokemonEncontrado = data.pokemones[i];
+            break;
+        }
+    }
+
+    if(encontrado == true){
+        crearCard(pokemonEncontrado);
+    }
 }
 
 function mostrarTodosJSON(){
     $.ajax({
-
-        type: "GET",
-        url: "data/data.json",
+        type: 'GET',
+        url: 'data/data.json',
         dataType: "json",
         async: true,
         success: function(data){
-            
-           mostrarTodos(data)
-
+           
+            mostrarTodos(data);
         }
-
     });
 }
 
 function mostrarTodos(data){
-    
-    for(let i=0; i<data.pokemones.length;i++){
-        var pokemon = data.pokemones[i];
-        crearCard(pokemon);
+    limpiar();
+    //console.log(divContainer.val());
+    for(let i=0; i<data.pokemones.length; i++){
+        crearCard(data.pokemones[i]);
+
     }
+    
 }
 
 function crearCard(pokemon){
-    //creando la cartilla del pokemon
-    let divCard = $("<div></<div>");
+    let divCard = $("<div></div>");
     divCard.addClass("card");
 
-    //creando el numero y nombre del pokemon
     let nombre = $("<h3></h3>");
     nombre.append(pokemon.num+" "+pokemon.nombre);
     nombre.addClass("nombre");
+    
+    divCard.append(nombre);
 
-    //creando la imagen del pokemon
+
     let img = $("<img></img>");
     img.attr("src",pokemon.img);
+    img.addClass("card-img");
 
-    // creando la informacion del pokemon
-    let info = $("<p></p>");
+    divCard.append(img);
+
+    let info = $('<p></p>');
     info.append(pokemon.info);
     info.addClass("info");
 
-    divCard.append(nombre);//colocando el num y nombre del pok en la cartilla
-    divCard.append(img);//colocando la imagen del pok en la cartilla
-    divCard.append(info);//colocando la info del pok en la cartilla
+    divCard.append(info);
 
-    $("#pictures-container").append(divCard); //agregando la cartilla al contenedor principal
+    
+    $("#pictures-container").append(divCard);
+
 }

@@ -1,0 +1,41 @@
+{
+    "pokemones": [
+        {
+            "num": "001",
+            "nombre": "bulbasaur",
+            "info": "Se puede ver a Bulbasaur durmiendo una siesta a la luz del sol. Hay una semilla en su espalda. Al absorber los rayos del sol, la semilla crece progresivamente.",
+            "img": "https://www.serebii.net/pokemongo/pokemon/001.png"
+        },
+        {
+            "num": "025",
+            "nombre": "pikachu",
+            "info": "Cada vez que Pikachu se encuentra con algo nuevo, lo explota con una descarga eléctrica. Si te encuentras con una baya ennegrecida, es evidencia de que este Pokémon confundió la intensidad de su carga.",
+            "img": "https://www.serebii.net/pokemongo/pokemon/025.png"
+        },
+
+        {
+            "num": "004",
+            "nombre": "charmander",
+            "info": "La llama que arde en la punta de su cola es un indicio de sus emociones. La llama oscila cuando Charmander se divierte. Si el Pokémon se enfurece, la llama arde ferozmente.",
+            "img": "https://www.serebii.net/pokemongo/pokemon/004.png"
+        },
+        {
+            "num": "007",
+            "nombre": "squirtle",
+            "info": "El caparazón de Squirtle no se usa simplemente como protección. La forma redondeada del caparazón y los surcos en su superficie ayudan a minimizar la resistencia en el agua, lo que permite a este Pokémon nadar a altas velocidades.",
+            "img": "https://www.serebii.net/pokemongo/pokemon/007.png"
+        },
+        {
+            "num": "017",
+            "nombre": "pidgeotto",
+            "info": "Pidgeotto reclama una gran superficie como territorio propio. Este Pokémon vuela patrullando su espacio vital. Si se viola su territorio, no muestra piedad y castiga al enemigo con sus afiladas garras.",
+            "img": "https://www.serebii.net/pokemongo/pokemon/017.png"
+        },
+        {
+            "num": "012",
+            "nombre": "butterfree",
+            "info": "Butterfree tiene una capacidad superior para buscar deliciosa miel en las flores. Incluso puede buscar, extraer y transportar miel de flores que florecen a más de seis millas de su nido.",
+            "img": "https://www.serebii.net/pokemongo/pokemon/012.png"
+        }
+    ]
+}

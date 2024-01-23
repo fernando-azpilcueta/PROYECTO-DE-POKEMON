@@ -1,0 +1,25 @@
+h1{
+    text-align: center;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 150px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 20px;
+}
+
+.nombre{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.info{
+    text-align: justify;
+}
